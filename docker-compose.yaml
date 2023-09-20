@@ -16,9 +16,6 @@ services:
     networks:
       - app
     restart: always
-networks:
-  app:
-    driver: bridge
   letsencrypt:
     container_name: 'certbot-service'
     image: certbot/certbot:latest
@@ -28,4 +25,7 @@ networks:
       - "/etc/letsencrypt:/etc/letsencrypt"
       - "/tmp/acme_challenge:/tmp/acme_challenge"
     environment:
-      - TERM=xterm
+      - TERM=xterm    
+networks:
+  app:
+    driver: bridge
